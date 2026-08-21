@@ -105,124 +105,195 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+Write an SQL query to add a new column email of type TEXT to the Student_details table, and ensure that this column cannot contain NULL values and make default value as 'Invalid'
 
-```sql
--- Paste your SQL code below for Question 1
+```
+ALTER TABLE student_details
+ADD email TEXT DEFAULT 'Invalid' NOT NULL;
+
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1238" height="327" alt="image" src="https://github.com/user-attachments/assets/eb8b8617-bf8d-4db6-89de-f53610aa6c85" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+Create a table named ProjectAssignments with the following constraints:
+AssignmentID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+ProjectID as INTEGER should be a foreign key referencing Projects(ProjectID).
+AssignmentDate as DATE should be NOT NULL.
 
-```sql
--- Paste your SQL code below for Question 2
+```
+CREATE TABLE ProjectAssignments(
+AssignmentID INTEGER PRIMARY KEY,
+EmployeeID INTEGER,
+ProjectID INTEGER,
+AssignmentDate DATE NOT NULL,
+FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
+FOREIGN KEY (ProjectID) REFERENCES Projects(ProjectID)
+);
+
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1246" height="369" alt="image" src="https://github.com/user-attachments/assets/70896b05-af7a-4081-b199-bda68c2081ce" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+Write an SQL query to add two new columns, department_id and manager_id, to the table employee with datatype of INTEGER. The manager_id column should have a default value of NULL.
 
-```sql
--- Paste your SQL code below for Question 3
+```
+ALTER TABLE employee ADD COLUMN department_id INTEGER;
+ALTER TABLE employee ADD COLUMN manager_id INTEGER DEFAULT NULL;
+
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1231" height="394" alt="image" src="https://github.com/user-attachments/assets/81cb479e-03b7-40c1-9cdc-1b9cdb0fad77" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+Create a table named Locations with the following columns:
 
-```sql
--- Paste your SQL code below for Question 4
+LocationID as INTEGER
+LocationName as TEXT
+Address as TEXT
+
+```
+CREATE TABLE Locations(
+LocationID INTEGER,
+LocationName TEXT,
+Address TEXT
+);
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1222" height="461" alt="image" src="https://github.com/user-attachments/assets/c196bf17-08bb-4048-8bae-62f4db0fbf3e" />
 
 **Question 5**
 ---
--- Paste Question 5 here
+Create a table named Products with the following constraints:
+ProductID as INTEGER should be the primary key.
+ProductName as TEXT should be unique and not NULL.
+Price as REAL should be greater than 0.
+StockQuantity as INTEGER should be non-negative.
 
-```sql
--- Paste your SQL code below for Question 5
+```
+CREATE TABLE Products(
+ProductID INTEGER PRIMARY KEY,
+ProductName TEXT NOT NULL UNIQUE,
+Price REAL CHECK (Price>0),
+StockQuantity INTEGER CHECK (StockQuantity >=0)
+);
+
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1235" height="366" alt="image" src="https://github.com/user-attachments/assets/976419c6-af50-40e9-b8c1-9bc961cb636e" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+Insert all products from Discontinued_products into Products.
 
-```sql
--- Paste your SQL code below for Question 6
+Table attributes are ProductID, ProductName, Price, Stock
+
+```
+INSERT INTO Products SELECT * FROM Discontinued_Products;
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1208" height="371" alt="image" src="https://github.com/user-attachments/assets/8ee4a94b-df1f-474c-8b8f-5edf24a5caae" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
-
-```sql
--- Paste your SQL code below for Question 7
+Insert a customer with CustomerID 301, Name Michael Jordan, Address 123 Maple St, City Chicago, and ZipCode 60616 into the Customers table.
+```
+INSERT INTO Customers(CustomerID,Name,Address,City,Zipcode)
+VALUES (301,'Michael Jordan','123 Maple St','Chicago',60616);
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="1215" height="308" alt="image" src="https://github.com/user-attachments/assets/53ae6957-3c44-4515-ac22-506a40e1af5f" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+Create a new table named products with the following specifications:
+product_id as INTEGER and primary key.
+product_name as TEXT and not NULL.
+list_price as DECIMAL (10, 2) and not NULL.
+discount as DECIMAL (10, 2) with a default value of 0 and not NULL.
+A CHECK constraint at the table level to ensure:
+list_price is greater than or equal to discount
+discount is greater than or equal to 0
+list_price is greater than or equal to 0
 
-```sql
--- Paste your SQL code below for Question 8
+```
+CREATE TABLE products(
+product_id INTEGER PRIMARY KEY,
+product_name TEXT NOT NULL,
+list_price DECIMAL(10,2) NOT NULL,
+discount DECIMAL(10,2) DEFAULT 0 NOT NULL,
+CHECK (list_price >= discount AND discount >= 0 AND list_price >=0)
+);
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1226" height="369" alt="image" src="https://github.com/user-attachments/assets/ec9bb909-4f4d-4e85-b3d9-1ba59ef3a9ea" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Insert a student with RollNo 201, Name David Lee, Gender M, Subject Physics, and MARKS 92 into the Student_details table.
 
-```sql
--- Paste your SQL code below for Question 9
+```
+INSERT INTO Student_details (RollNo,Name,Gender,Subject,MARKS)
+VALUES (201,'David Lee','M','Physics',92);
 ```
 
 **Output:**
+<img width="1214" height="313" alt="image" src="https://github.com/user-attachments/assets/05fdbd62-131f-4adb-b925-160000d64100" />
 
-![Output9](output.png)
 
 **Question 10**
 ---
--- Paste Question 10 here
+Create a table named Employees with the following constraints:
 
-```sql
--- Paste your SQL code below for Question 10
+EmployeeID should be the primary key.
+FirstName and LastName should be NOT NULL.
+Email should be unique.
+Salary should be greater than 0.
+DepartmentID should be a foreign key referencing the Departments table.
+
+```
+CREATE TABLE Employees(
+EmployeeID INT PRIMARY KEY,
+FirstName VARCHAR (50) NOT NULL,
+LastName VARCHAR (50) NOT NULL,
+Email VARCHAR(100) UNIQUE,
+Salary DECIMAL (10,2) CHECK (Salary>0),
+DepartmentID INT,
+FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID)
+);
 ```
 
 **Output:**
 
-![Output10](output.png)
-
+<img width="1232" height="506" alt="image" src="https://github.com/user-attachments/assets/773c8972-8660-4dae-ac82-3bd6afa836ef" />
 
 ## RESULT
 Thus, the SQL queries to implement different types of constraints and DDL commands have been executed successfully.
