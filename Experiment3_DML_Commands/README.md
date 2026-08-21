@@ -47,123 +47,179 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Paste Question 1 here
+Write a SQL query to find all those customers who does not have any grade. Return customer_id, cust_name, city, grade, salesman_id.
 
-```sql
--- Paste your SQL code below for Question 1
+Sample table: customer
+
+```
+select * from customer
+where grade is null;
 ```
 
 **Output:**
+<img width="1233" height="503" alt="image" src="https://github.com/user-attachments/assets/32dcb912-885d-491b-baab-fd3f443ad6f3" />
 
-![Output1](output.png)
 
 **Question 2**
 ---
--- Paste Question 2 here
+Write a SQL query to find all employees along with the day of the week on which they were hired from the emp table
 
-```sql
--- Paste your SQL code below for Question 2
+```
+SELECT 
+    ename, 
+    hiredate, 
+    CASE STRFTIME('%w', hiredate)
+        WHEN '0' THEN 'Sunday'
+        WHEN '1' THEN 'Monday'
+        WHEN '2' THEN 'Tuesday'
+        WHEN '3' THEN 'Wednesday'
+        WHEN '4' THEN 'Thursday'
+        WHEN '5' THEN 'Friday'
+        WHEN '6' THEN 'Saturday'
+    END AS day_of_week
+FROM emp;
 ```
 
 **Output:**
+<img width="872" height="449" alt="image" src="https://github.com/user-attachments/assets/d5962062-f993-4a5b-9656-6e71f298d63f" />
 
-![Output2](output.png)
+
 
 **Question 3**
 ---
--- Paste Question 3 here
 
-```sql
--- Paste your SQL code below for Question 3
+Write a SQL query to identify products where the discount amount is greater than $50. Return product_id, original_price, discount_percentage, and discount_amount.
+
+Sample table: products
+```
+SELECT 
+product_id,
+original_price,
+discount_percentage,
+original_price * discount_percentage AS discount_amount
+FROM products
+WHERE original_price * discount_percentage > 50;
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="873" height="340" alt="image" src="https://github.com/user-attachments/assets/bca71e49-44b7-48d5-b729-7fdb187bd698" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+ Write a query to retrieve the first four characters of  EmpLname from the EmployeeInfo table.
 
-```sql
--- Paste your SQL code below for Question 4
+EmployeeInfo Table
+
+```
+SELECT SUBSTR(EmpLname, 1, 4)
+FROM EmployeeInfo;
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="851" height="397" alt="image" src="https://github.com/user-attachments/assets/1e33b5d6-3ae9-4351-ab86-8dbbec4e0311" />
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL statement to change the first_name column of employees table with 'John' for those employees whose department_id is 80 and gets a commission_pct below 0.35.
 
-```sql
--- Paste your SQL code below for Question 5
+
+Employees table
+
+```
+update employees
+set first_name='John'
+where department_id=80 and commission_pct<0.35;
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1234" height="630" alt="image" src="https://github.com/user-attachments/assets/b44c297b-0ffc-4b6d-b98e-7117cebcc744" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write a SQL query to Delete All Doctors whose ID ranges from 2 to 4.
 
-```sql
--- Paste your SQL code below for Question 6
+Sample table: Doctors
+
+```
+delete from doctors
+where doctor_id between 2 and 4;
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1238" height="916" alt="image" src="https://github.com/user-attachments/assets/cccd66c2-7aa9-4b5f-8843-6ead65388d42" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query to retrieve the details of all customers whose ID belongs to any of the values 3007, 3008 or 3009. Return customer_id, cust_name, city, grade, and salesman_id.
 
-```sql
--- Paste your SQL code below for Question 7
+Sample table: customer
+
+```
+select * from customer
+where customer_id in (3007,3008,3009);
+
 ```
 
 **Output:**
+<img width="862" height="487" alt="image" src="https://github.com/user-attachments/assets/4e14af80-5dbe-4fcc-8c2f-48282b49c156" />
 
-![Output7](output.png)
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write a SQL statement to Update the per_unit_price to 25 and total_price accordingly in purchases table where purchase_date is '2022-08-15' and product_id is 12.
 
-```sql
--- Paste your SQL code below for Question 8
+```
+update purchases
+set per_unit_price=25,total_price=quantity*25
+where purchase_date='2022-08-15' and product_id=12;
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="852" height="602" alt="image" src="https://github.com/user-attachments/assets/f497bccb-1418-488c-a215-d5069bf24f50" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write a SQL query to Delete all Doctors whose Specialization is either 'Pediatrics' or 'Cardiology' and Last Name is Brown.
 
-```sql
--- Paste your SQL code below for Question 9
+Sample table: Doctors
+
+```
+DELETE FROM Doctors
+WHERE last_name = 'Brown'
+  AND specialization IN ('Pediatrics', 'Cardiology');
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1265" height="909" alt="image" src="https://github.com/user-attachments/assets/525e5670-f127-4169-8e4c-9f19f2b872ee" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write a SQL query to Delete customers from 'customer' table where 'GRADE' is less than 2.
 
-```sql
--- Paste your SQL code below for Question 10
+ 
+Sample table: Customer
+
+```
+delete from customer
+where grade<2;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1289" height="551" alt="image" src="https://github.com/user-attachments/assets/9c1de215-98dd-4c32-9957-3efb3f105389" />
+
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
