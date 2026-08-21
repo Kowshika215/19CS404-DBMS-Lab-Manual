@@ -295,5 +295,8 @@ FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID)
 
 <img width="1232" height="506" alt="image" src="https://github.com/user-attachments/assets/773c8972-8660-4dae-ac82-3bd6afa836ef" />
 
+**SEB Grade:**
+<img width="1401" height="79" alt="image" src="https://github.com/user-attachments/assets/3e782a3d-c979-4a2a-b26d-bbd9de905008" />
+
 ## RESULT
 Thus, the SQL queries to implement different types of constraints and DDL commands have been executed successfully.
