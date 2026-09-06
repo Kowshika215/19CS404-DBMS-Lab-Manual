@@ -79,7 +79,9 @@ END;
 ```
 **Expected Output:**  
 Square of 6 is 36
+
 **Output:**
+
 <img width="872" height="120" alt="image" src="https://github.com/user-attachments/assets/2c7cdf90-ac69-4eb0-ac28-044d0209a0d9" />
 
 
@@ -126,6 +128,7 @@ END;
 Factorial of 5 is 120
 
 **Output:**
+
 <img width="657" height="127" alt="image" src="https://github.com/user-attachments/assets/6fdf4cd4-c6c6-458c-8b16-03cf1e2aa08c" />
 
 
@@ -161,6 +164,7 @@ END;
 12 is Even
 
 **Output:**
+
 <img width="777" height="137" alt="image" src="https://github.com/user-attachments/assets/8a380f1f-2890-4aa8-b53b-7e14c4160146" />
 
 
@@ -203,7 +207,9 @@ END;
 ```
 **Expected Output:**  
 Reversed number of 1234 is 4321
+
 **Output:**
+
 <img width="875" height="127" alt="image" src="https://github.com/user-attachments/assets/66c88338-5969-49ce-8e41-ae2e17e354b7" />
 
 
@@ -243,6 +249,7 @@ Multiplication table of 5:
 5 x 10 = 50
 
 **Output:**
+
 <img width="761" height="293" alt="image" src="https://github.com/user-attachments/assets/5119ea85-a668-42b9-a5d8-30f0168a2e74" />
 
 ## RESULT
