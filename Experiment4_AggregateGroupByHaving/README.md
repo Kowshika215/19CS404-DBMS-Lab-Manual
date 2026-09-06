@@ -37,125 +37,162 @@ HAVING condition;
 ```
 
 **Question 1**
---
--- Paste Question 1 here
+---
+Write a SQL query to find the average length of names for people living in Chennai?
 
-```sql
--- Paste your SQL code below for Question 1
+```
+SELECT 
+  AVG(LENGTH(name)) AS avg_name_length
+FROM customer
+WHERE city = 'Chennai';
+
 ```
 
 **Output:**
+<img width="1228" height="391" alt="image" src="https://github.com/user-attachments/assets/0f62ae44-6cc8-48de-9348-243961d3d46e" />
 
-![Output1](output.png)
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+Write a SQL query to find the total income of employees aged 40 or above.
 
-```sql
--- Paste your SQL code below for Question 2
+```
+select sum(income) as total_income
+from employee
+where age >= 40;
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="863" height="387" alt="image" src="https://github.com/user-attachments/assets/d69482ca-63b6-408c-8aec-1b2902503153" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+Write a SQL query to Calculate the average income of the employees with names starting with 'A': 
 
-```sql
--- Paste your SQL code below for Question 3
+```
+select avg(income) as avg_income
+from employee
+where name like 'A%';
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="865" height="397" alt="image" src="https://github.com/user-attachments/assets/d0924d7d-f3f0-4a14-ab46-fa6945c2c269" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+What is the count of male and female patients?
 
-```sql
--- Paste your SQL code below for Question 4
+```
+select gender,count(*) as TotalPatients
+from patients
+group by gender;
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="861" height="440" alt="image" src="https://github.com/user-attachments/assets/58081b52-8118-4d61-af78-d996e9109665" />
 
 **Question 5**
 ---
--- Paste Question 5 here
+How many prescriptions were written by each doctor?
 
-```sql
--- Paste your SQL code below for Question 5
+```
+select doctorid,count(*) as TotalPrescriptions
+from prescriptions
+group by doctorid;
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="860" height="830" alt="image" src="https://github.com/user-attachments/assets/88323b2e-7fbb-4b3b-b4dd-40ba441f5f20" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+What is the total number of appointments scheduled for each day?
 
-```sql
--- Paste your SQL code below for Question 6
+```
+select strftime('%Y-%m-%d',AppointmentDatetime) as AppointmentDate,count(*) as TotalAppointments
+from appointments
+group by appointmentdatetime;
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="861" height="731" alt="image" src="https://github.com/user-attachments/assets/e8f055c2-e48b-4329-bf89-133f9f52b940" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query to identify the cities (addresses) where the average salary is greater than Rs. 5000, as per the "customer1" table.
 
-```sql
--- Paste your SQL code below for Question 7
+```
+select address,AVG(salary)
+from customer1
+group by address
+having avg(salary) > 5000;
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="866" height="512" alt="image" src="https://github.com/user-attachments/assets/339844be-e134-4cc1-ba08-69da625ff991" />
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write the SQL query to find how many patients have more than 3 medical records?.
 
-```sql
--- Paste your SQL code below for Question 8
+```
+SELECT
+    PatientID,
+    COUNT(*) AS TotalRecords
+FROM
+    MedicalRecords
+GROUP BY
+    PatientID
+HAVING
+    COUNT(*) > 3;
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="853" height="417" alt="image" src="https://github.com/user-attachments/assets/161db243-c5ec-4fcb-8184-96ebb60b9e7a" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write the SQL query that accomplishes the grouping of data by joining date (jdate), calculates the maximum work hours for each date, and excludes dates where the maximum work hour is not greater than 12.
 
-```sql
--- Paste your SQL code below for Question 9
+```
+select jdate,max(workhour) as 'MAX(workhour)'
+from employee1
+group by jdate
+having max(workhour) > 12;
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="862" height="457" alt="image" src="https://github.com/user-attachments/assets/c6c2fadd-0de6-4284-9cb6-4b516d402044" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write the SQL query that achieves the grouping of data by age groups, displays the minimum salary for each group, and excludes groups where the minimum salary is not less than 2000.
 
-```sql
--- Paste your SQL code below for Question 10
+```
+select (age/5) * 5 as age_group,min(salary) as 'MIN(salary)'
+from customer1
+group by age_group
+having min(salary) < 2000;
 ```
 
 **Output:**
 
-![Output10](output.png)
-
+<img width="851" height="416" alt="image" src="https://github.com/user-attachments/assets/1afdc000-c657-42d9-bf98-bc90dc40c1db" />
 
 ## RESULT
 Thus, the SQL queries to implement aggregate functions, GROUP BY, and HAVING clause have been executed successfully.
